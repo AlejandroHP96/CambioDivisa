@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 public class CambioDivisa extends Application{
 
-    private ComboBox comboBox1,comboBox2;
+    private ComboBox<Divisa> comboBox1,comboBox2;
     private TextField textField1,textField2;
     private Button button;
     
@@ -19,7 +19,10 @@ public class CambioDivisa extends Application{
     public void start(Stage primaryStage) throws Exception {
 
         comboBox1 = new ComboBox<>();
+        comboBox1.getItems().addAll(new Divisa("Euro", 1.0),new Divisa("Libra", 0.8873),new Divisa("Dolar", 1.2007),new Divisa("Yen", 133.59));
+
         comboBox2 = new ComboBox<>();
+        comboBox2.getItems().addAll(new Divisa("Euro", 1.0),new Divisa("Libra", 0.8873),new Divisa("Dolar", 1.2007),new Divisa("Yen", 133.59));
 
         textField1 = new TextField();
         textField2 = new TextField();
