@@ -14,7 +14,6 @@ public class CambioDivisa extends Application {
     private ComboBox<Divisa> comboBox1, comboBox2;
     private TextField textField1, textField2;
     private Button button;
-    private Divisa origen, destino;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -51,12 +50,8 @@ public class CambioDivisa extends Application {
 
         // listeners
 
-        button.setOnAction(e -> onCambiarDivisa(
-            comboBox1.getSelectionModel().getSelectedItem(), 
-            comboBox2.getSelectionModel().getSelectedItem(), 
-            Double.parseDouble(textField1.getText()),
-            textField2
-        ));
+        button.setOnAction(e -> onCambiarDivisa(comboBox1.getSelectionModel().getSelectedItem(),
+                comboBox2.getSelectionModel().getSelectedItem(), Double.parseDouble(textField1.getText()), textField2));
 
     }
 
@@ -67,5 +62,4 @@ public class CambioDivisa extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
 }
