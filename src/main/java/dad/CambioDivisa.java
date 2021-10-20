@@ -59,7 +59,6 @@ public class CambioDivisa extends Application {
     }
 
     private void onCambiarDivisa() {
-        destino.fromEuro(origen.toEuro());
     }
 
     public static void main(String[] args) {
