@@ -14,7 +14,7 @@ public class CambioDivisa extends Application {
     private ComboBox<Divisa> comboBox1, comboBox2;
     private TextField textField1, textField2;
     private Button button;
-    private Divisa origen,destino;
+    private Divisa origen, destino;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -29,6 +29,7 @@ public class CambioDivisa extends Application {
 
         textField1 = new TextField();
         textField2 = new TextField();
+        textField2.setEditable(false);
 
         button = new Button("Cambiar");
 
@@ -46,19 +47,21 @@ public class CambioDivisa extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        //bindeos
+        // bindeos
 
+        // listeners
 
-
-        //listeners
-
-        button.textProperty().addListener(e -> onCambiarDivisa());
-
-        
+        button.setOnAction(e -> onCambiarDivisa(
+            comboBox1.getSelectionModel().getSelectedItem(), 
+            comboBox2.getSelectionModel().getSelectedItem(), 
+            Double.parseDouble(textField1.getText()),
+            textField2
+        ));
 
     }
 
-    private void onCambiarDivisa() {
+    private void onCambiarDivisa(Divisa entrada, Divisa cambio, Double cantidad, TextField resultado) {
+        resultado.setText(Divisa.fromTo(entrada, cambio, cantidad).toString());
     }
 
     public static void main(String[] args) {
