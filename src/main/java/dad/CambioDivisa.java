@@ -51,12 +51,12 @@ public class CambioDivisa extends Application {
         // listeners
 
         button.setOnAction(e -> onCambiarDivisa(comboBox1.getSelectionModel().getSelectedItem(),
-                comboBox2.getSelectionModel().getSelectedItem(), Double.parseDouble(textField1.getText()), textField2));
+                comboBox2.getSelectionModel().getSelectedItem(), Double.parseDouble(textField1.getText())));
 
     }
 
-    private void onCambiarDivisa(Divisa entrada, Divisa cambio, Double cantidad, TextField resultado) {
-        resultado.setText(Divisa.fromTo(entrada, cambio, cantidad).toString());
+    private void onCambiarDivisa(Divisa entrada, Divisa cambio, Double cantidad) {
+        textField2.setText(Divisa.fromTo(entrada, cambio, cantidad).toString());
     }
 
     public static void main(String[] args) {
